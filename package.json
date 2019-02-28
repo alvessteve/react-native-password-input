@@ -21,6 +21,12 @@
     "url": "https://github.com/alvessteve/react-native-password-input/issues"
   },
   "homepage": "https://github.com/alvessteve/react-native-password-input#readme",
+  "dependencies": {
+    "react-native-vector-icons": "^6.3.0"
+  },
+  "peerDependencies": {
+    "react-native": ">=0.48.4"
+  },
   "devDependencies": {
     "eslint": "^5.14.1",
     "eslint-config-google": "^0.12.0",

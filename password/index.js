@@ -49,7 +49,6 @@ export default class Password extends Component<Props, State> {
       iconName: showPwd ? "eye-with-line" : "eye"
     });
   };
-
   render() {
     const { size, styles, ...props } = this.props;
     const { showPwd, iconName } = this.state;
