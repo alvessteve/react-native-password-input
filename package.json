@@ -1,0 +1,22 @@
+{
+  "name": "react-native-password-input",
+  "version": "1.0.0",
+  "description": "A password input for react native",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alvessteve/react-native-password-input.git"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "author": "Steve Alves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alvessteve/react-native-password-input/issues"
+  },
+  "homepage": "https://github.com/alvessteve/react-native-password-input#readme"
+}
