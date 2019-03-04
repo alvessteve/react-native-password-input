@@ -8,24 +8,48 @@
  */
 
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View } from "react-native";
-
-const instructions = Platform.select({
-  ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
-  android:
-    "Double tap R on your keyboard to reload,\n" +
-    "Shake or press menu button for dev menu"
-});
+import {
+  TextInput,
+  StyleSheet,
+  Text,
+  KeyboardAvoidingView,
+  TouchableOpacity,
+  Alert
+} from "react-native";
+import { Password } from "react-native-password-input";
 
 type Props = {};
 export default class App extends Component<Props> {
+  alert = () => {
+    Alert.alert("Password submitted", "Password ok");
+  };
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
+      <KeyboardAvoidingView behavior="padding" style={styles.container}>
+        <TextInput
+          onChangeText={text => this.setState({ name: text })}
+          style={styles.input}
+          placeholder="Email"
+          returnKeyType="next"
+          autoCapitalize="none"
+          onSubmitEditing={() => this.passwordInput.focus()}
+          autoCorrect={false}
+        />
+        <Password
+          onRef={ref => (this.passwordInput = ref)}
+          onChangeText={text => this.setState({ password: text })}
+          placeholder="Password"
+          returnKeyType="go"
+          onSubmitEditing={this.alert}
+        />
+        <TouchableOpacity
+          onPress={this.alert}
+          style={styles.login_forgot_pwd_view}
+        >
+          <Text style={styles.loginText}>Log in</Text>
+        </TouchableOpacity>
+      </KeyboardAvoidingView>
     );
   }
 }
@@ -46,5 +70,13 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#333333",
     marginBottom: 5
+  },
+  loginText: {
+    color: "#fa665e",
+    fontSize: 15,
+    lineHeight: 20
+  },
+  login_forgot_pwd_view: {
+    marginTop: 20
   }
 });
